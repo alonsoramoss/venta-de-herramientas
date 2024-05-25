@@ -3,7 +3,7 @@
 Aplicación desarrollada en Python utilizando la biblioteca Tkinter y MySQL. Permite a los usuarios registrarse, iniciar sesión, buscar herramientas disponibles, realizar compras y anular compras.
 
 ### Características:
-- **Inicio de Sesión y Registro de Usuarios:** Permite a los usuarios registrarse y acceder al sistema.
+- **Inicio de Sesión y Registro de Usuarios:** Los usuarios pueden registrarse y acceder al sistema.
 - **Búsqueda de Herramientas:** La aplicación permite buscar herramientas por nombre y muestra los resultados disponibles en una lista.
 - **Compra de Herramientas:** Los usuarios pueden seleccionar las herramientas que desean comprar, ingresar la cantidad y calcular el total de la compra.
 - **Anulación de Compras:** Existe la opción de anular compras realizadas previamente.
