@@ -12,11 +12,11 @@ Aplicación desarrollada en Python utilizando la biblioteca Tkinter y MySQL. Per
 1. **Clonar el repositorio**
 
 2. **Instalar MySQL Connector:**
-*pip install mysql-connector-python*
+    - *pip install mysql-connector-python*
 
 3. **Configurar la Base de Datos**
-- Crear una base de datos en MySQL llamada `ferreteria`.
-- Ejecutar el siguiente script SQL para crear las tablas necesarias:
+    - Crear una base de datos en MySQL llamada `ferreteria`.
+    - Ejecutar el siguiente script SQL para crear las tablas necesarias:
   
   ```sql
   CREATE TABLE usuarios (
