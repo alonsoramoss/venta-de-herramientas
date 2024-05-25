@@ -6,18 +6,18 @@ Aplicación desarrollada en Python utilizando la biblioteca Tkinter y MySQL. Per
 - **Inicio de Sesión y Registro de Usuarios:** Permite a los usuarios registrarse y acceder al sistema.
 - **Búsqueda y Selección de Herramientas:** Los usuarios pueden buscar herramientas disponibles y seleccionar las cantidades deseadas.
 - **Cálculo de Subtotales y Totales:** Calcula automáticamente los subtotales y totales de la compra.
-- **Generación y Anulación de Ventas:** Permite realizar y anular ventas, almacenando los detalles en una base de datos MySQL.
+- **Almacenamiento en MySQL:** Todos los datos se almacenan en una base de datos MySQL llamada *ferreteria*.
 
 ### Configuración:
 1. **Clonar el repositorio:**
 
 2. **Instalar MySQL Connector:**
-pip install mysql-connector-python
-
+*pip install mysql-connector-python*
 
 3. **Configurar la Base de Datos:**
 - Crear una base de datos en MySQL llamada `ferreteria`.
 - Ejecutar el siguiente script SQL para crear las tablas necesarias:
+  
   ```sql
   CREATE TABLE usuarios (
       id INT AUTO_INCREMENT PRIMARY KEY,
