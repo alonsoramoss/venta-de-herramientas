@@ -5,7 +5,7 @@ Aplicación desarrollada en Python utilizando la biblioteca Tkinter y MySQL. Per
 ### Características:
 - **Inicio de Sesión y Registro de Usuarios:** Permite a los usuarios registrarse y acceder al sistema.
 - **Búsqueda y Selección de Herramientas:** Los usuarios pueden buscar herramientas disponibles y seleccionar las cantidades deseadas.
-- **Cálculo de Subtotales y Totales:** Calcula automáticamente los subtotales y totales de la compra.
+- **Cálculo de Subtotal y Total:** Calcula el subtotal y total de la compra.
 - **Almacenamiento en MySQL:** Todos los datos se almacenan en una base de datos MySQL llamada *ferreteria*.
 
 ### Configuración:
