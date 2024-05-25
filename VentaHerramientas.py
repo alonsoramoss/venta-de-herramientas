@@ -11,20 +11,20 @@ cursor = conn.cursor()
 
 def login():
     try:
-        username = username_entry.get() 
-        password = password_entry.get() 
+        username = username_entry.get()
+        password = password_entry.get()
         cursor.execute("SELECT * FROM usuarios WHERE nombre=%s", (username,))
-        user = cursor.fetchone()  
-        if user: 
-            stored_password = user[6] 
+        user = cursor.fetchone()
+        if user:
+            stored_password = user[6]
             if password == stored_password:
-                show_boleta_window(user[0]) 
+                show_boleta_window(user[0])
             else:
-                error_label.config(text="Usuario o contraseña inválidos") 
+                error_label.config(text="Usuario o contraseña inválidos")
         else:
-            error_label.config(text="Usuario o contraseña inválidos")  
+            error_label.config(text="Usuario o contraseña inválidos")
     except Exception as e:
-        error_label.config(text="Error de conexión") 
+        error_label.config(text="Error de conexión")
 
 def show_register_window():
     register_window = tk.Toplevel()
@@ -73,16 +73,24 @@ def show_boleta_window(idUser):
     boleta_window = tk.Tk()
     boleta_window.title("Boleta de Venta")
 
-    subtotal_label = tk.Label(boleta_window, text="Subtotal:")
-    subtotal_label.grid(row=2, column=2, padx=5, pady=5)
-
     def search_tool():
         tool_name = tool_entry.get()
         cursor.execute("SELECT id, nombre, precio FROM herramientas WHERE nombre LIKE %s", ('%' + tool_name + '%',))
         tools = cursor.fetchall()
-        tool_listbox.delete(0, tk.END) 
+        tool_listbox.delete(0, tk.END)
         for tool in tools:
             tool_listbox.insert(tk.END, f"{tool[0]}:{tool[1]} - ${tool[2]}")
+
+    def calculate_total():
+        total_pedido = 0
+        for i in range(tool_listbox.size()):
+            tool_info = tool_listbox.get(i).split(" - $")
+            price = float(tool_info[1])
+            quantity = int(quantity_entries[i].get() if quantity_entries[i].get() else 0)
+            subtotal = price * quantity
+            subtotal_entries[i].config(text=f"${subtotal:.2f}")
+            total_pedido += subtotal
+        total_entry.config(text=f"${total_pedido:.2f}")
 
     def comprar():
         try:
@@ -91,7 +99,7 @@ def show_boleta_window(idUser):
             for i in range(tool_listbox.size()):
                 tool_info = tool_listbox.get(i).split(":")
                 tool_id = int(tool_info[0])
-                quantity = int(quantity_entries[i].get())
+                quantity = int(quantity_entries[i].get() if quantity_entries[i].get() else 0)
                 subtotal = float(subtotal_entries[i].cget("text").replace("$", ""))
                 cursor.execute("INSERT INTO detalle_venta (venta_id, herramienta_id, cantidad, subtotal) VALUES (%s, %s, %s, %s)", (venta_id, tool_id, quantity, subtotal))
             conn.commit()
@@ -101,31 +109,24 @@ def show_boleta_window(idUser):
 
     def anular_compra():
         try:
+            cursor.execute("SELECT id FROM venta WHERE idUser = %s", (idUser,))
+            venta_ids = cursor.fetchall()
+            for venta_id in venta_ids:
+                cursor.execute("DELETE FROM detalle_venta WHERE venta_id = %s", (venta_id[0],))
             cursor.execute("DELETE FROM venta WHERE idUser = %s", (idUser,))
-            cursor.execute("DELETE FROM detalle_venta WHERE venta_id = %s", (idUser,))
             conn.commit()
             error_label.config(text="Compra anulada exitosamente", fg="green")
         except Exception as e:
             error_label.config(text="Error al anular la compra", fg="red")
 
-    def calculate_total():
-        total_pedido = 0
-        for i in range(tool_listbox.size()):
-            tool_info = tool_listbox.get(i).split(" - $")
-            price = float(tool_info[1])
-            quantity = int(quantity_entries[i].get())
-            subtotal = price * quantity
-            subtotal_entries[i].config(text=f"${subtotal:.2f}")
-            total_pedido += subtotal 
-        total_entry.config(text=f"${total_pedido:.2f}") 
-
-
     tool_label = tk.Label(boleta_window, text="Herramienta:")
     tool_entry = tk.Entry(boleta_window)
     search_button = tk.Button(boleta_window, text="Buscar", command=search_tool)
-    tool_listbox = tk.Listbox(boleta_window, width=50, selectmode=tk.MULTIPLE) 
+    tool_listbox = tk.Listbox(boleta_window, width=50, selectmode=tk.MULTIPLE)
+
     price_label = tk.Label(boleta_window, text="Precio por unidad:")
     quantity_label = tk.Label(boleta_window, text="Cantidad:")
+    subtotal_label = tk.Label(boleta_window, text="Subtotal:")
     total_label = tk.Label(boleta_window, text="Total:")
     total_entry = tk.Label(boleta_window, text="$0.00")
     calculate_button = tk.Button(boleta_window, text="Calcular Total", command=calculate_total)
@@ -152,13 +153,16 @@ def show_boleta_window(idUser):
 
     quantity_entries = []
     subtotal_entries = []
-    for i in range(5): 
+    for i in range(5):
         quantity_entry = tk.Entry(boleta_window, width=5)
         quantity_entry.grid(row=i+3, column=1, padx=5, pady=5)
         quantity_entries.append(quantity_entry)
         subtotal_entry = tk.Label(boleta_window, text="$0.00")
         subtotal_entry.grid(row=i+3, column=2, padx=5, pady=5)
         subtotal_entries.append(subtotal_entry)
+
+    error_label = tk.Label(boleta_window, text="", fg="red")
+    error_label.grid(row=11, column=0, columnspan=3, padx=5, pady=5)
 
 login_window = tk.Tk()
 login_window.title("Inicio de Sesión")
@@ -180,4 +184,3 @@ register_button.grid(row=3, column=0, columnspan=2, padx=5, pady=5)
 error_label.grid(row=4, column=0, columnspan=2, padx=5, pady=5)
 
 login_window.mainloop()
-
