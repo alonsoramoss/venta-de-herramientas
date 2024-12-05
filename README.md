@@ -1,4 +1,4 @@
-# Sistema de Gestión de Boletas y Usuarios con Tkinter y MySQL
+# Sistema de Venta de Herramientas con Tkinter y MySQL
 
 Aplicación desarrollada en Python utilizando la biblioteca Tkinter y MySQL. Permite a los usuarios registrarse, iniciar sesión, buscar herramientas disponibles, realizar compras y anular compras.
 
