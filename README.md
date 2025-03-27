@@ -10,11 +10,15 @@ Aplicación desarrollada en Python utilizando la biblioteca Tkinter y MySQL. Per
 
 ## Pasos para utilizar la aplicación
 #### 1. Clonar el repositorio
-
+    git clone https://github.com/alonsoramoss/venta-de-herramientas.git
+    
 #### 2. Instalar MySQL Connector
     pip install mysql-connector-python
 
-#### 3. Configurar la Base de Datos
+#### 3. Iniciar Apache y MySQL en XAMPP
+Abre el panel de control de XAMPP y activa los servicios de **Apache** y **MySQL**.
+
+#### 4. Configurar la Base de Datos
 Crear una base de datos en MySQL llamada `ferreteria`.
 - Ejecutar el siguiente script SQL para crear las tablas necesarias:
   
@@ -52,4 +56,5 @@ Crear una base de datos en MySQL llamada `ferreteria`.
   );
   ```
 
-#### 4. Ejecutar la Aplicación
+#### 5. Ejecutar la Aplicación
+    py ventaherramientas.py
