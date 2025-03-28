@@ -8,7 +8,7 @@ Aplicación desarrollada en Python utilizando la biblioteca Tkinter y MySQL. Per
 - **Compra de Herramientas:** Los usuarios pueden seleccionar las herramientas que desean comprar, ingresar la cantidad y calcular el total de la compra.
 - **Anulación de Compras:** Existe la opción de anular compras realizadas previamente.
 
-## Pasos para utilizar la aplicación
+## Instalación y Configuración
 #### 1. Clona el repositorio
     git clone https://github.com/alonsoramoss/venta-de-herramientas.git
     
