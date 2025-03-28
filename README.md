@@ -9,18 +9,18 @@ Aplicación desarrollada en Python utilizando la biblioteca Tkinter y MySQL. Per
 - **Anulación de Compras:** Existe la opción de anular compras realizadas previamente.
 
 ## Pasos para utilizar la aplicación
-#### 1. Clonar el repositorio
+#### 1. Clona el repositorio
     git clone https://github.com/alonsoramoss/venta-de-herramientas.git
     
-#### 2. Instalar MySQL Connector
+#### 2. Instala MySQL Connector
     pip install mysql-connector-python
 
-#### 3. Iniciar Apache y MySQL en XAMPP
+#### 3. Inicia Apache y MySQL en XAMPP
 Abre el panel de control de XAMPP y activa los servicios de **Apache** y **MySQL**.
 
-#### 4. Configurar la Base de Datos
-Crear una base de datos en MySQL llamada `ferreteria`.
-- Ejecutar el siguiente script SQL para crear las tablas necesarias:
+#### 4. Configura la base de datos
+Crea una base de datos en MySQL llamada `ferreteria`.
+- Ejecuta el siguiente script SQL para crear las tablas necesarias:
   
   ```sql
   CREATE TABLE usuarios (
@@ -56,5 +56,5 @@ Crear una base de datos en MySQL llamada `ferreteria`.
   );
   ```
 
-#### 5. Ejecutar la Aplicación
+#### 5. Ejecuta la aplicación
     py ventaherramientas.py
