@@ -1,4 +1,4 @@
-# Sistema de Venta de Herramientas con Tkinter y MySQL
+# Sistema de Venta de Herramientas
 
 Aplicación desarrollada en Python utilizando la biblioteca Tkinter y MySQL. Permite a los usuarios registrarse, iniciar sesión, buscar herramientas disponibles, realizar compras y anular compras.
 
