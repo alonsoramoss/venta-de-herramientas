@@ -1,12 +1,12 @@
 # Sistema de Venta de Herramientas
 
-Aplicación desarrollada en Python utilizando la biblioteca Tkinter y MySQL. Permite a los usuarios registrarse, iniciar sesión, buscar herramientas disponibles, realizar compras y anular compras.
+Aplicación desarrollada en Python utilizando MySQL y la biblioteca Tkinter. Permite a los usuarios registrarse, iniciar sesión, buscar herramientas disponibles, realizar compras y anular compras.
 
 ## Características
-- **Inicio de Sesión y Registro de Usuarios:** Los usuarios pueden registrarse y acceder al sistema.
-- **Búsqueda de Herramientas:** La aplicación permite buscar herramientas por nombre y muestra los resultados disponibles en una lista.
-- **Compra de Herramientas:** Los usuarios pueden seleccionar las herramientas que desean comprar, ingresar la cantidad y calcular el total de la compra.
-- **Anulación de Compras:** Existe la opción de anular compras realizadas previamente.
+- **Inicio de sesión y registro de usuarios:** Los usuarios pueden registrarse y acceder al sistema.
+- **Búsqueda de herramientas:** La aplicación permite buscar herramientas por nombre y muestra los resultados disponibles en una lista.
+- **Compra de herramientas:** Los usuarios pueden seleccionar las herramientas que desean comprar, ingresar la cantidad y calcular el total de la compra.
+- **Anulación de compras:** Existe la opción de anular compras realizadas previamente.
 
 ## Instalación y Configuración
 #### 1. Clona el repositorio
